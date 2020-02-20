@@ -29,5 +29,12 @@
         android:onClick="playSound"
         android:id="@+id/button_griffin3" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dubstep"
+        android:onClick="playSound"
+        android:id="@+id/button_dubstep" />
+
 
 </LinearLayout>

@@ -13,7 +13,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private SoundPool soundPool;
-    private int griffin, griffin2, griffin3;
+    private int griffin, griffin2, griffin3, dubstep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,27 +27,35 @@ public class MainActivity extends AppCompatActivity {
                     .build();
 
             soundPool = new SoundPool.Builder()
-                    .setMaxStreams(3)
+                    .setMaxStreams(4)
                     .setAudioAttributes(audioAttributes)
                     .build();
         } else {
-            soundPool = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
+            soundPool = new SoundPool(4, AudioManager.STREAM_MUSIC, 0);
         }
 
         griffin = soundPool.load(this, R.raw.griffin, 1);
         griffin2 = soundPool.load(this, R.raw.griffin2, 1);
         griffin3 = soundPool.load(this, R.raw.griffin3, 1);
+        dubstep = soundPool.load(this, R.raw.dubstep, 1);
     }
     public void playSound(View v) {
         switch (v.getId()) {
             case R.id.button_griffin:
                 soundPool.play(griffin,1, 1, 0, 0, 1);
+                soundPool.autoPause();
                 break;
             case R.id.button_griffin2:
                 soundPool.play(griffin2,1, 1, 0, 0, 1);
+                soundPool.autoPause();
                 break;
             case R.id.button_griffin3:
                 soundPool.play(griffin3,1, 1, 0, 0, 1);
+                soundPool.autoPause();
+                break;
+            case R.id.button_dubstep:
+                soundPool.play(dubstep,1, 1, 0, 0, 1);
+                soundPool.autoPause();
                 break;
         }
     }
